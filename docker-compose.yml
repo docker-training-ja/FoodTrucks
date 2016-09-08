@@ -1,11 +1,11 @@
-version: "2"
-services:
-  es:
-    image: elasticsearch:2.4
-  web:
-    image: dockertrainingja/foodtrucks-web:20160712
-    command: python app.py
-    ports:
-      - "5000:5000"
-    volumes:
-      - .:/code
+es:
+  image: elasticsearch:2.4
+web:
+  image: dockertrainingja/foodtrucks-web:20160712
+  command: python app.py
+  ports:
+    - "5000:5000"
+  volumes:
+    - .:/code
+  links:
+    - es
